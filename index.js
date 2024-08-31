@@ -1,33 +1,44 @@
+// index.js
+
 document.addEventListener("DOMContentLoaded", function () {
-	console.log("Welcome to Sadaf Alina's Poetry Page!");
+	const searchButton = document.getElementById("search-btn");
+	const keywordInput = document.getElementById("keyword");
+	const quoteContainer = document.getElementById("quote-container");
 
-	const themeToggle = document.getElementById("theme-toggle");
-	const body = document.body;
-	const header = document.querySelector("header");
-	const sections = document.querySelectorAll("section");
-	const footer = document.querySelector("footer");
+	searchButton.addEventListener("click", async function () {
+		const keyword = keywordInput.value;
+		quoteContainer.innerHTML = ""; // Clear previous results
 
-	// Load saved theme preference
-	if (localStorage.getItem("theme") === "dark") {
-		body.classList.add("dark-mode");
-		header.classList.add("dark-mode");
-		footer.classList.add("dark-mode");
-		sections.forEach((section) => section.classList.add("dark-mode"));
-		themeToggle.textContent = "Switch to Light Mode";
-	}
+		if (!keyword.trim()) {
+			quoteContainer.innerHTML = "<p>Please enter a keyword to search.</p>";
+			return;
+		}
 
-	themeToggle.addEventListener("click", function () {
-		body.classList.toggle("dark-mode");
-		header.classList.toggle("dark-mode");
-		footer.classList.toggle("dark-mode");
-		sections.forEach((section) => section.classList.toggle("dark-mode"));
+		try {
+			const response = await fetch(
+				`https://api.quotable.io/quotes?query=${encodeURIComponent(keyword)}`
+			);
+			const data = await response.json();
 
-		if (body.classList.contains("dark-mode")) {
-			themeToggle.textContent = "Switch to Light Mode";
-			localStorage.setItem("theme", "dark");
-		} else {
-			themeToggle.textContent = "Switch to Dark Mode";
-			localStorage.setItem("theme", "light");
+			if (data.results.length > 0) {
+				data.results.forEach((quote) => {
+					const quoteElement = document.createElement("div");
+					quoteElement.classList.add("quote-item");
+					quoteElement.innerHTML = `
+                        <h3>"${quote.content}"</h3>
+                        <p><strong>Author:</strong> ${quote.author}</p>
+                        <p><strong>Tags:</strong> ${quote.tags.join(", ")}</p>
+                    `;
+					quoteContainer.appendChild(quoteElement);
+				});
+			} else {
+				quoteContainer.innerHTML =
+					"<p>No quotes found for the given keyword.</p>";
+			}
+		} catch (error) {
+			quoteContainer.innerHTML =
+				"<p>Sorry, something went wrong. Please try again later.</p>";
+			console.error("Error fetching quotes:", error);
 		}
 	});
 });
