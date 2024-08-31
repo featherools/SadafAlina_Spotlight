@@ -1,13 +1,15 @@
 body {
-	background-image: url("https://cdn.openart.ai/stable_diffusion/1a070ddbb1fae47d12a1e04daaec50925c673f63_2000x2000.webp");
-	background-size: cover;
+	background-image: url("angryBird.jpg");
+	background-size: contain;
+	background-position: center;
+	background-repeat: no-repeat;
 	font-family: "Open Sans", "Helvetica Neue", sans-serif;
 	text-align: center;
 	height: 100vh;
 }
 
 .container {
-	background: white;
+	background: rgba(255, 255, 255, 0.8); /* white with 80% opacity */
 	max-width: 80%;
 	margin: auto;
 	border: 3px solid black;
