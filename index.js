@@ -4,12 +4,10 @@ document.addEventListener("DOMContentLoaded", function () {
 	const quoteContainer = document.getElementById("quote-container");
 
 	searchButton.addEventListener("click", async function () {
-		console.log("Search button clicked");
 		const keyword = keywordInput.value.trim();
 		quoteContainer.innerHTML = ""; // Clear previous results
 
 		if (!keyword) {
-			console.log("No keyword entered");
 			quoteContainer.innerHTML = "<p>Please enter a keyword to search.</p>";
 			return;
 		}
@@ -24,7 +22,6 @@ document.addEventListener("DOMContentLoaded", function () {
 			console.log("API Response:", response); // Debug log
 
 			if (!response.ok) {
-				console.log("API returned an error");
 				throw new Error(`HTTP error! Status: ${response.status}`);
 			}
 
@@ -32,7 +29,6 @@ document.addEventListener("DOMContentLoaded", function () {
 			console.log("API Data:", data); // Debug log
 
 			if (data.results.length > 0) {
-				console.log("Found quotes");
 				data.results.forEach((quote) => {
 					const quoteElement = document.createElement("div");
 					quoteElement.classList.add("quote-item");
@@ -44,15 +40,16 @@ document.addEventListener("DOMContentLoaded", function () {
 					quoteContainer.appendChild(quoteElement);
 				});
 			} else {
-				console.log("No quotes found");
 				quoteContainer.innerHTML =
 					"<p>No quotes found for the given keyword.</p>";
 			}
 		} catch (error) {
 			console.log("Error occurred");
+			console.error("Error fetching quotes:", error);
+			console.error("Error message:", error.message);
+			console.error("Error stack:", error.stack);
 			quoteContainer.innerHTML =
 				"<p>Sorry, something went wrong. Please try again later.</p>";
-			console.error("Error fetching quotes:", error);
 		}
 	});
 
