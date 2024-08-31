@@ -6,10 +6,10 @@ document.addEventListener("DOMContentLoaded", function () {
 	const quoteContainer = document.getElementById("quote-container");
 
 	searchButton.addEventListener("click", async function () {
-		const keyword = keywordInput.value;
+		const keyword = keywordInput.value.trim();
 		quoteContainer.innerHTML = ""; // Clear previous results
 
-		if (!keyword.trim()) {
+		if (!keyword) {
 			quoteContainer.innerHTML = "<p>Please enter a keyword to search.</p>";
 			return;
 		}
@@ -18,6 +18,10 @@ document.addEventListener("DOMContentLoaded", function () {
 			const response = await fetch(
 				`https://api.quotable.io/quotes?query=${encodeURIComponent(keyword)}`
 			);
+			if (!response.ok) {
+				throw new Error(`HTTP error! Status: ${response.status}`);
+			}
+
 			const data = await response.json();
 
 			if (data.results.length > 0) {
