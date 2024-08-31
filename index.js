@@ -14,15 +14,21 @@ document.addEventListener("DOMContentLoaded", function () {
 			return;
 		}
 
+		console.log("Searching for keyword:", keyword); // Debug log
+
 		try {
 			const response = await fetch(
 				`https://api.quotable.io/quotes?query=${encodeURIComponent(keyword)}`
 			);
+
+			console.log("API Response:", response); // Debug log
+
 			if (!response.ok) {
 				throw new Error(`HTTP error! Status: ${response.status}`);
 			}
 
 			const data = await response.json();
+			console.log("API Data:", data); // Debug log
 
 			if (data.results.length > 0) {
 				data.results.forEach((quote) => {
@@ -43,6 +49,13 @@ document.addEventListener("DOMContentLoaded", function () {
 			quoteContainer.innerHTML =
 				"<p>Sorry, something went wrong. Please try again later.</p>";
 			console.error("Error fetching quotes:", error);
+		}
+	});
+
+	// Allow pressing Enter to trigger search
+	keywordInput.addEventListener("keypress", function (event) {
+		if (event.key === "Enter") {
+			searchButton.click();
 		}
 	});
 });
