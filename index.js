@@ -1,15 +1,6 @@
-let saveEl = document.getElementById("save-el")
-let countEl = document.getElementById("count-el")
-let count = 0
+// Add any interactive JavaScript here, if needed
 
-function increment() {
-    count += 1
-    countEl.textContent = count
-}
-
-function save() {
-    let countStr = count + " - "
-    saveEl.textContent += countStr
-    countEl.textContent = 0
-    count = 0
-}
+document.addEventListener("DOMContentLoaded", function () {
+	console.log("Welcome to Sadaf Alina's Poetry Page!");
+	// You can add more JavaScript functionality here
+});

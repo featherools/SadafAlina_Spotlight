@@ -1,51 +1,81 @@
 body {
-	background-image: url("angryBird.jpg");
-	background-size: contain;
-	background-position: center;
-	background-repeat: no-repeat;
-	font-family: "Open Sans", "Helvetica Neue", sans-serif;
+	font-family: Arial, sans-serif;
+	margin: 0;
+	padding: 0;
+	color: #333;
+	background-color: #f5f5f5;
+}
+
+header {
+	background: #fff;
+	padding: 20px;
 	text-align: center;
-	height: 100vh;
+	border-bottom: 2px solid #ccc;
 }
 
-.container {
-	background: rgba(255, 255, 255, 0.8); /* white with 80% opacity */
-	max-width: 80%;
-	margin: auto;
-	border: 3px solid black;
-	border-radius: 10px;
+header h1 {
+	font-size: 2em;
+	margin: 0;
 }
 
-h1 {
+header h2 {
+	font-size: 1.5em;
 	margin-top: 10px;
-	margin-bottom: 10px;
+	color: #555;
 }
 
-h2 {
-	font-size: 50px;
-	margin-top: 0;
+section {
+	padding: 20px;
+	margin: 0 auto;
+	max-width: 800px;
+}
+
+section h3 {
+	font-size: 1.8em;
+	border-bottom: 2px solid #ccc;
+	padding-bottom: 10px;
 	margin-bottom: 20px;
 }
 
-button {
-	border: 1px solid black;
-	padding-top: 10px;
-	padding-bottom: 10px;
-	color: white;
-	font-weight: bold;
-	width: 200px;
-	margin-bottom: 5px;
+.poem {
+	background: #fff;
+	padding: 20px;
+	border: 1px solid #ddd;
+	border-radius: 5px;
+	margin-bottom: 20px;
+}
+
+form input,
+form select,
+form button {
+	display: block;
+	width: 100%;
+	padding: 10px;
+	margin-bottom: 10px;
+	border: 1px solid #ddd;
 	border-radius: 5px;
 }
 
-#increment-btn {
-	background: #175194;
+form button {
+	background-color: #333;
+	color: #fff;
+	border: none;
+	cursor: pointer;
 }
 
-#save-btn {
-	background: #8a0303;
+footer {
+	background: #333;
+	color: #fff;
+	padding: 20px;
+	text-align: center;
 }
 
-#save-el {
-	font-weight: bold;
+footer a {
+	color: #fff;
+	text-decoration: none;
+	margin: 0 10px;
+}
+
+footer p {
+	margin: 10px 0 0;
 }

@@ -1,15 +1,79 @@
-<html>
+<!DOCTYPE html>
+<html lang="en">
 	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>Sadaf Alina - Poetry Landing Page</title>
 		<link rel="stylesheet" href="index.css" />
 	</head>
 	<body>
-		<div class="container">
-			<h1>Number of Taunts Given by Sadaf:</h1>
-			<h2 id="count-el">0</h2>
-			<button id="increment-btn" onclick="increment()">INCREMENT</button>
-			<button id="save-btn" onclick="save()">SAVE</button>
-			<p id="save-el">Previous entries:</p>
-		</div>
+		<header>
+			<h1>Dive into a World of Words Where Every Line Speaks to Your Soul</h1>
+			<h2>
+				Curated poetry, raw emotions, and the beauty of expression—all in one
+				place.
+			</h2>
+		</header>
+
+		<section id="about">
+			<h3>Our Story in Verse</h3>
+			<p>
+				Born out of a passion for words, Sadaf Alina is more than just an
+				Instagram page—it's a community of like-minded souls who find beauty in
+				every stanza, every line. We believe in the power of poetry to heal,
+				inspire, and connect. Here, every poem is a journey, every verse a
+				mirror reflecting the world in ways you've never seen before.
+			</p>
+		</section>
+
+		<section id="featured">
+			<h3>Today's Featured Poem</h3>
+			<!-- Example post -->
+			<div class="poem">
+				<p>"Your poem will be displayed here."</p>
+				<a href="https://www.instagram.com/SadafAlina" target="_blank"
+					>Follow us on Instagram for daily doses of poetry</a
+				>
+			</div>
+		</section>
+
+		<section id="join">
+			<h3>Join Our Circle of Poets</h3>
+			<p>
+				Want exclusive poetry, behind-the-scenes insights, and a community that
+				breathes verse? Sign up for our newsletter and never miss a moment of
+				inspiration.
+			</p>
+			<form>
+				<input type="text" name="name" placeholder="Your Name" required />
+				<input type="email" name="email" placeholder="Your Email" required />
+				<select name="interest">
+					<option value="writing">Writing</option>
+					<option value="reading">Reading</option>
+					<option value="collaboration">Collaboration</option>
+				</select>
+				<button type="submit">Sign Up</button>
+			</form>
+		</section>
+
+		<section id="testimonials">
+			<h3>What Our Followers Say</h3>
+			<p>"Heartfelt testimonial here."</p>
+		</section>
+
+		<section id="instagram-feed">
+			<h3>Live from Our Insta</h3>
+			<!-- Embed Instagram Feed Here -->
+		</section>
+
+		<footer>
+			<a href="https://www.instagram.com/SadafAlina" target="_blank"
+				>Follow Us on Instagram</a
+			>
+			<a href="#submit">Submit Your Poetry</a>
+			<p>Contact us for collaborations or inquiries. &copy; 2024 Sadaf Alina</p>
+		</footer>
+
 		<script src="index.js"></script>
 	</body>
 </html>
