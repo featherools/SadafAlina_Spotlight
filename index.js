@@ -13,7 +13,7 @@ document.addEventListener("DOMContentLoaded", function () {
     }
 
     console.log("Searching for keyword:", keyword); // Debug log
-
+// 
     try {
       const response = await fetch(
         `https://api.quotable.io/quotes?query=${encodeURIComponent(keyword)}`
