@@ -13,6 +13,11 @@
 				<a href="index Home.html">Home</a>
 				<a href="index.html">Quotes</a>
 			</nav>
+			<!-- Dark mode toggle -->
+			<label class="switch">
+				<input type="checkbox" id="dark-mode-toggle" />
+				<span class="slider"></span>
+			</label>
 		</header>
 
 		<section id="search">
@@ -31,5 +36,18 @@
 		</footer>
 
 		<script src="index.js"></script>
+		<script>
+			// Dark Mode Toggle
+			const toggle = document.getElementById("dark-mode-toggle");
+			const body = document.body;
+
+			toggle.addEventListener("change", () => {
+				if (toggle.checked) {
+					body.classList.add("dark-mode");
+				} else {
+					body.classList.remove("dark-mode");
+				}
+			});
+		</script>
 	</body>
 </html>
